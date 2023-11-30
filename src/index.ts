@@ -19,6 +19,7 @@ export const withQuery = makeDecorator({
 
     const newLocation = new URL(document.location.href);
     newLocation.search = qs.stringify({ ...currentQuery, ...additionalQuery });
+    newLocation.search += '#/?' +qs.stringify({ ...additionalQuery})
 
     history.replaceState({}, document.title, newLocation.toString());
 
